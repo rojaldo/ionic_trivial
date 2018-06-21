@@ -13,6 +13,7 @@ export class TrivialCard {
         this.type = data.type;
         this.question = data.question;
         this.correctAnswer = data.correct_answer;
+        this.answers = new Array<string>();
         this.answers = data.incorrect_answers;
         this.answers.push(this.correctAnswer);
     }

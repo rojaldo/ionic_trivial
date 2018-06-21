@@ -23,7 +23,7 @@ export class HomePage {
   }
   success(data: any): any {
     console.log(data);
-    for(let card in data.results){
+    for(let card of data.results){
       this.service.cards.push(new TrivialCard(card));
     }
   }

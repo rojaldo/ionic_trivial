@@ -1,0 +1,10 @@
+<!-- Generated template for the CardComponent component -->
+<ion-card>
+  <ion-card-header>
+    
+  </ion-card-header>
+  <ion-card-content>
+    <h3>{{card?.question}}</h3>
+    <button ion-button block *ngFor="let answer of card?.answers">{{answer}}</button>
+  </ion-card-content>
+</ion-card>

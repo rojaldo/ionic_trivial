@@ -13,12 +13,10 @@ import { TrivialCard } from '../../app/model/card';
 export class RequestProvider {
 
   baseUrl = 'https://opentdb.com/api.php?amount=1';
-  cards: TrivialCard[];
+  cards = new Array<TrivialCard>();
 
   constructor(public http: HttpClient) {
     console.log('Hello RequestProvider Provider');
-    this.cards = new Array<TrivialCard>();
-
   }
 
   doGetRequest(url: string): Observable<any>{

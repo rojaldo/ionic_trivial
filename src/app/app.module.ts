@@ -10,12 +10,13 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { RequestProvider } from '../providers/request/request';
 import { HttpClientModule } from '@angular/common/http';
+import { CardComponent } from '../components/card/card';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    ListPage
+    ListPage, CardComponent
   ],
   imports: [
     BrowserModule,
