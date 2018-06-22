@@ -15,6 +15,7 @@ export class CardComponent {
 
   @Input() card: TrivialCard;
   colorArray: string[];
+  solid = [true,true,true,true];
 
   constructor() {
     console.log('Hello CardComponent Component');
@@ -30,9 +31,11 @@ export class CardComponent {
     for(let index = 0;index < this.card.answers.length;index++) {
       if(index === this.card.indexAnswer && this.card.correct === false){
         this.colorArray[index] = 'danger';
+        this.solid[index] = false;
       }
       else if(this.card.answers[index] === this.card.correctAnswer){
         this.colorArray[index] = 'secondary';
+        this.solid[index] = false;
       } else{
         this.colorArray[index] = 'dark';
       }

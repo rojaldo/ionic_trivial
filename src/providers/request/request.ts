@@ -12,7 +12,7 @@ import { TrivialCard } from '../../app/model/card';
 @Injectable()
 export class RequestProvider {
 
-  baseUrl = 'https://opentdb.com/api.php?amount=1';
+  baseUrl = 'https://opentdb.com/api.php?amount=20';
   cards = new Array<TrivialCard>();
 
   constructor(public http: HttpClient) {
