@@ -4,12 +4,12 @@
     
   </ion-card-header>
   <ion-card-content>
-    <h3>{{card?.question}}</h3>
+    <h3 [innerHtml]="card?.question"></h3>
     <div *ngIf="!card?.answered">
-      <button ion-button block *ngFor="let answer of card?.answers; let i = index" (click)="answerCard(i)" >{{answer}}</button>
+      <button ion-button block *ngFor="let answer of card?.answers; let i = index" (click)="answerCard(i)" [innerHtml]="answer"></button>
     </div>
     <div *ngIf="card?.answered">
-      <button ion-button block *ngFor="let answer of card?.answers; let i = index" [outline]="solid[i]" [color]="colorArray[i]" disabled >{{answer}}</button>
+      <button ion-button block *ngFor="let answer of card?.answers; let i = index" [outline]="solid[i]" [color]="colorArray[i]" [innerHtml]="answer" disabled ></button>
     </div>
   </ion-card-content>
 </ion-card>
