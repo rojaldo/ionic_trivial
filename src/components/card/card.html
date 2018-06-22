@@ -5,6 +5,11 @@
   </ion-card-header>
   <ion-card-content>
     <h3>{{card?.question}}</h3>
-    <button ion-button block *ngFor="let answer of card?.answers">{{answer}}</button>
+    <div *ngIf="!card?.answered">
+      <button ion-button block *ngFor="let answer of card?.answers; let i = index" (click)="answerCard(i)" >{{answer}}</button>
+    </div>
+    <div *ngIf="card?.answered">
+      <button ion-button block *ngFor="let answer of card?.answers; let i = index" outline="true" [color]="colorArray[i]" disabled >{{answer}}</button>
+    </div>
   </ion-card-content>
 </ion-card>

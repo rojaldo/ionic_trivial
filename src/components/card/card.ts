@@ -14,9 +14,29 @@ import { TrivialCard } from '../../app/model/card';
 export class CardComponent {
 
   @Input() card: TrivialCard;
+  colorArray: string[];
 
   constructor() {
     console.log('Hello CardComponent Component');
   }
 
+  answerCard(index: number) {
+    this.card.answered = true;
+    this.card.indexAnswer = index;
+    if(this.card.correctAnswer === this.card.answers[index]){
+      this.card.correct = true;
+    }
+    this.colorArray = new Array<string>();
+    for(let index = 0;index < this.card.answers.length;index++) {
+      if(index === this.card.indexAnswer && this.card.correct === false){
+        this.colorArray[index] = 'danger';
+      }
+      else if(this.card.answers[index] === this.card.correctAnswer){
+        this.colorArray[index] = 'secondary';
+      } else{
+        this.colorArray[index] = 'dark';
+      }
+      
+    }
+  }
 }

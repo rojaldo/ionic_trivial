@@ -6,6 +6,9 @@ export class TrivialCard {
     type: string;
     difficulty: string;
     category: string;
+    answered: boolean;
+    indexAnswer: number;
+    correct: boolean;
 
     constructor(data: any){
         this.category = data.category;
@@ -16,5 +19,8 @@ export class TrivialCard {
         this.answers = new Array<string>();
         this.answers = data.incorrect_answers;
         this.answers.push(this.correctAnswer);
+        this.answered = false;
+        this.correct = false;
+        this.indexAnswer = -1;
     }
 }
