@@ -3,10 +3,14 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Home</ion-title>
+    <ion-title>Trivial</ion-title>
+    <ion-buttons end>
+        <ion-badge color="secondary">{{rightAnswers}}</ion-badge>
+        <ion-badge color="danger">{{wrongAnswers}}</ion-badge>
+      </ion-buttons>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <app-card *ngFor="let card of service.cards" [card]="card"></app-card>
+  <app-card *ngFor="let card of service.cards" [card]="card" (signal) = "updateCounter($event)"></app-card>
 </ion-content>

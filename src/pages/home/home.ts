@@ -9,6 +9,9 @@ import { TrivialCard } from '../../app/model/card';
 })
 export class HomePage {
 
+  public rightAnswers = 0;
+  public wrongAnswers = 0;
+
   constructor(public navCtrl: NavController, public service: RequestProvider) {
 
   }
@@ -25,6 +28,14 @@ export class HomePage {
     console.log(data);
     for(let card of data.results){
       this.service.cards.push(new TrivialCard(card));
+    }
+  }
+
+  updateCounter(rightAnswer: boolean) {
+    if(rightAnswer) {
+      this.rightAnswers++;
+    }else {
+      this.wrongAnswers++;
     }
   }
 

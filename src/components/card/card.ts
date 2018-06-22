@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, EventEmitter, Output } from '@angular/core';
 import { TrivialCard } from '../../app/model/card';
 
 /**
@@ -14,6 +14,7 @@ import { TrivialCard } from '../../app/model/card';
 export class CardComponent {
 
   @Input() card: TrivialCard;
+  @Output() signal= new EventEmitter<boolean>()
   colorArray: string[];
   solid = [true,true,true,true];
 
@@ -26,6 +27,9 @@ export class CardComponent {
     this.card.indexAnswer = index;
     if(this.card.correctAnswer === this.card.answers[index]){
       this.card.correct = true;
+      this.signal.emit(true);
+    }else{
+      this.signal.emit(false);
     }
     this.colorArray = new Array<string>();
     for(let index = 0;index < this.card.answers.length;index++) {
